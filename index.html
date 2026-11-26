@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SYAHRUL // Pixel Portofolio</title>
+  <meta name="description" content="Portofolio interaktif bergaya pixel art — AI Enthusiast & Cyber Security.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=Press+Start+2P&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><span class="logo-dot"></span>SYAHRUL</a>
+    <ul>
+      <li><a href="#profil">PROFIL</a></li>
+      <li><a href="#karya">KARYA</a></li>
+      <li><a href="#kontak">KONTAK</a></li>
+    </ul>
+    <div class="hud-controls">
+      
+      <button class="hud-btn active" id="toggle-sfx" type="button" aria-pressed="true" title="Toggle efek suara 8-bit">SFX</button>
+      <div class="coin-score" aria-live="polite">
+        <canvas data-sprite="coin" aria-hidden="true"></canvas>
+        <span><span id="coin-count">0/5</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="xp-track" aria-hidden="true"><div class="xp-fill" id="xp-bar"></div></div>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <canvas class="cloud" data-sprite="cloud" style="--w:144px;top:15%;left:4%;animation-duration:80s;animation-delay:-20s" aria-hidden="true"></canvas>
+    <canvas class="cloud" data-sprite="cloud" style="--w:96px;top:30%;left:40%;animation-duration:110s;animation-delay:-70s" aria-hidden="true"></canvas>
+    <canvas class="cloud" data-sprite="cloud" style="--w:120px;top:9%;left:70%;animation-duration:95s;animation-delay:-40s" aria-hidden="true"></canvas>
+
+    <div class="coin-row">
+      <button class="coin" style="left:8%;animation-delay:-.1s" aria-label="Koin 1"><canvas data-sprite="coin"></canvas></button>
+      <button class="coin" style="left:27%;animation-delay:-.4s" aria-label="Koin 2"><canvas data-sprite="coin"></canvas></button>
+      <button class="coin" style="left:52%;animation-delay:-.7s" aria-label="Koin 3"><canvas data-sprite="coin"></canvas></button>
+      <button class="coin" style="left:74%;animation-delay:-.2s" aria-label="Koin 4"><canvas data-sprite="coin"></canvas></button>
+      <button class="coin" style="left:90%;animation-delay:-.9s" aria-label="Koin 5"><canvas data-sprite="coin"></canvas></button>
+    </div>
+
+    <div class="wrap">
+      <div class="dialog">
+        <div class="dialog-top">
+          <span class="nametag" id="player-badge">PLAYER 1</span>
+          <span class="status-pill"><span class="pulse-dot"></span> ONLINE</span>
+        </div>
+        <p class="hello">Halo, aku</p>
+        <h1>SYAHRUL</h1>
+        <p class="role" id="role-text" data-text="AI ENTHUSIAST & CYBER SECURITY">AI ENTHUSIAST &amp; CYBER SECURITY</p>
+        <p class="lead">Halo semuanya! Saya Syahrul, mahasiswa Informatika semester 3 di Telkom University Surabaya yang tertarik mengeksplorasi keamanan siber dan kecerdasan buatan.<span class="cursor" aria-hidden="true"></span></p>
+        <div class="actions">
+          <a class="btn" href="#karya">&gt; LIHAT KARYA</a>
+          <a class="btn" style="--c:var(--pink)" href="#kontak">KONTAK</a>
+        </div>
+        <p class="hint" id="hint">Klik semua koin melayang untuk membuka mode spesial!</p>
+      </div>
+
+      <div class="stage" id="stage">
+        <canvas class="sun" id="sun" aria-hidden="true"></canvas>
+        <div class="char" id="char" role="button" tabindex="0" aria-label="Karakter piksel berompi yang melambai sambil tersenyum. Klik untuk melompat.">
+          <img class="layer" src="char-body.png" alt="">
+          <span class="layer arm" aria-hidden="true"></span>
+          <img class="layer eyes" src="char-blink.png" alt="">
+          <span class="bubble" aria-hidden="true">HALO!</span>
+        </div>
+      </div>
+    </div>
+    <div class="ground" aria-hidden="true"></div>
+  </section>
+
+  <section class="band about" id="profil">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">PROFIL PEMAIN</h2>
+        <span class="sec-badge">LVL. 03 // INFORMATIKA</span>
+      </div>
+
+      <div class="bento-grid">
+        <div class="card card-term reveal">
+          <div class="term-bar" aria-hidden="true">
+            <span class="t-dot r"></span>
+            <span class="t-dot y"></span>
+            <span class="t-dot g"></span>
+            <span class="term-title">syahrul@telkom-sby</span>
+          </div>
+          <div class="card-inner">
+            <h3 class="card-h">TENTANG AKU</h3>
+            <p>Aku mahasiswa Informatika semester 3 di Telkom University Surabaya. Dari dulu aku penasaran bagaimana sebuah sistem bisa dibobol, dan bagaimana caranya supaya tetap aman.</p>
+            <p>Selain keamanan siber, aku juga mendalami kecerdasan buatan (AI) karena dua bidang ini saling terhubung: AI membantu mendeteksi ancaman, namun juga bisa menjadi target serangan. Di sela kuliah, aku suka membangun web bertema pixel art seperti ini.</p>
+            <dl class="facts">
+              <div class="fact"><dt>KELAS</dt><dd>Mahasiswa Informatika</dd></div>
+              <div class="fact"><dt>KAMPUS</dt><dd>Telkom University Surabaya</dd></div>
+              <div class="fact"><dt>FOKUS</dt><dd>Cyber Security &amp; AI</dd></div>
+              <div class="fact"><dt>STATUS</dt><dd><span class="dot"></span>Semester 3, terus eksplorasi</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-inner">
+            <div class="card-h-row">
+              <h3 class="card-h">STATISTIK SKILL</h3>
+              <span class="mini-tag">EXP BAR</span>
+            </div>
+            <ul class="skills">
+              <li class="skill" style="--c:var(--pink)"><div class="skill-top"><span>HTML &amp; CSS</span><span>7/10</span></div><div class="bar" data-level="7" role="img" aria-label="HTML dan CSS, level 7 dari 10"></div></li>
+              <li class="skill" style="--c:var(--orange)"><div class="skill-top"><span>JAVASCRIPT</span><span>6/10</span></div><div class="bar" data-level="6" role="img" aria-label="JavaScript, level 8 dari 10"></div></li>
+              <li class="skill" style="--c:var(--green)"><div class="skill-top"><span>PYTHON</span><span>6/10</span></div><div class="bar" data-level="6" role="img" aria-label="Python, level 6 dari 10"></div></li>
+              <li class="skill" style="--c:var(--cyan)"><div class="skill-top"><span>C++</span><span>4/10</span></div><div class="bar" data-level="4" role="img" aria-label="Cyber security, level 4 dari 10"></div></li>
+              <li class="skill" style="--c:var(--purple)"><div class="skill-top"><span>AI &amp; ML</span><span>2/10</span></div><div class="bar" data-level="2" role="img" aria-label="AI dan machine learning, level 2 dari 10"></div></li>
+              <li class="skill" style="--c:var(--yellow)"><div class="skill-top"><span>GOLANG</span><span>5/10</span></div><div class="bar" data-level="5" role="img" aria-label="Git, level 5 dari 10"></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card tools-card reveal">
+        <div class="card-inner">
+          <div class="card-h-row">
+            <h3 class="card-h">INVENTORI ALAT</h3>
+            <span class="mini-tag">8 ITEM TERPASANG</span>
+          </div>
+          <ul class="tools">
+            <li class="tool" style="--c:var(--green)">KALI LINUX</li>
+            <li class="tool" style="--c:var(--cyan)">WIRESHARK</li>
+            <li class="tool" style="--c:var(--orange)">NMAP</li>
+            <li class="tool" style="--c:var(--pink)">BURP SUITE</li>
+            <li class="tool" style="--c:var(--yellow)">PYTHON</li>
+            <li class="tool" style="--c:var(--purple)">JUPYTER</li>
+            <li class="tool" style="--c:var(--cyan)">VS CODE</li>
+            <li class="tool" style="--c:var(--green)">GITHUB</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band works" id="karya">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">PROJECT QUEST</h2>
+        <div class="filter-bar" role="group" aria-label="Filter kategori proyek">
+          <button class="filter-btn active" type="button" data-filter="all">SEMUA</button>
+          <button class="filter-btn" type="button" data-filter="web">WEB &amp; UI</button>
+          <button class="filter-btn" type="button" data-filter="app">APP &amp; GAME</button>
+        </div>
+      </div>
+
+      <div class="work-grid">
+        <article class="work reveal" style="--c:var(--pink)"
+          data-cat="web"
+          data-title="KOTA NEON"
+          data-desc="Landing page kota futuristik bergaya cyberpunk dengan efek animasi parallax berlapis yang tetap ringan dijalankan di berbagai perangkat."
+          data-stack="HTML,CSS,JavaScript"
+          data-url="https://example.com/kota-neon">
+          <div class="thumb-wrap">
+            <canvas class="thumb" data-scene="skyline" role="img" aria-label="Ilustrasi piksel kota di malam hari"></canvas>
+            <span class="work-tag">WEB</span>
+          </div>
+          <div class="work-body">
+            <h3>KOTA NEON</h3>
+            <p>Landing page kota futuristik dengan animasi parallax yang ringan.</p>
+            <ul class="chips"><li>HTML</li><li>CSS</li><li>JS</li></ul>
+            <div class="work-actions">
+              <button class="more inspect-btn" type="button">INSPECT &gt;</button>
+              <a class="ext-link" href="https://example.com/kota-neon" target="_blank" rel="noopener" aria-label="Buka Kota Neon">↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work reveal" style="--c:var(--cyan)"
+          data-cat="app"
+          data-title="GUNUNG BIRU"
+          data-desc="Aplikasi Progressive Web App (PWA) pencatat rute pendakian dan titik koordinat yang tetap berfungsi penuh saat offline tanpa sinyal."
+          data-stack="React,PWA,Service Worker"
+          data-url="https://example.com/gunung-biru">
+          <div class="thumb-wrap">
+            <canvas class="thumb" data-scene="mountain" role="img" aria-label="Ilustrasi piksel pegunungan dan matahari"></canvas>
+            <span class="work-tag">PWA</span>
+          </div>
+          <div class="work-body">
+            <h3>GUNUNG BIRU</h3>
+            <p>Aplikasi pencatat rute pendakian yang tetap jalan tanpa sinyal.</p>
+            <ul class="chips"><li>React</li><li>PWA</li></ul>
+            <div class="work-actions">
+              <button class="more inspect-btn" type="button">INSPECT &gt;</button>
+              <a class="ext-link" href="https://example.com/gunung-biru" target="_blank" rel="noopener" aria-label="Buka Gunung Biru">↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work reveal" style="--c:var(--purple)"
+          data-cat="app"
+          data-title="ORBIT"
+          data-desc="Dashboard visualisasi data antariksa interaktif dengan grafik telemetri real-time dan sistem penyaringan data berkecepatan tinggi."
+          data-stack="JavaScript,Chart,Data Viz"
+          data-url="https://example.com/orbit">
+          <div class="thumb-wrap">
+            <canvas class="thumb" data-scene="space" role="img" aria-label="Ilustrasi piksel planet bercincin di luar angkasa"></canvas>
+            <span class="work-tag">DATA</span>
+          </div>
+          <div class="work-body">
+            <h3>ORBIT</h3>
+            <p>Dashboard data antariksa dengan grafik interaktif dan filter cepat.</p>
+            <ul class="chips"><li>JavaScript</li><li>Chart</li></ul>
+            <div class="work-actions">
+              <button class="more inspect-btn" type="button">INSPECT &gt;</button>
+              <a class="ext-link" href="https://example.com/orbit" target="_blank" rel="noopener" aria-label="Buka Orbit">↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work reveal" style="--c:var(--green)"
+          data-cat="app"
+          data-title="KEBUN MINI"
+          data-desc="Mini-game simulasi berkebun berbasis HTML5 Canvas di browser. Pemain bisa menanam benih, menyiram tanaman, dan memanen hasil."
+          data-stack="HTML5 Canvas,Game Loop,JS"
+          data-url="https://example.com/kebun-mini">
+          <div class="thumb-wrap">
+            <canvas class="thumb" data-scene="garden" role="img" aria-label="Ilustrasi piksel taman bunga di bukit hijau"></canvas>
+            <span class="work-tag">GAME</span>
+          </div>
+          <div class="work-body">
+            <h3>KEBUN MINI</h3>
+            <p>Game kebun santai di browser. Tanam, siram, panen, ulangi.</p>
+            <ul class="chips"><li>Canvas</li><li>Game</li></ul>
+            <div class="work-actions">
+              <button class="more inspect-btn" type="button">INSPECT &gt;</button>
+              <a class="ext-link" href="https://example.com/kebun-mini" target="_blank" rel="noopener" aria-label="Buka Kebun Mini">↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work reveal" style="--c:var(--yellow)"
+          data-cat="web"
+          data-title="LAUT DALAM"
+          data-desc="Platform edukasi interaktif tentang ekosistem biota laut untuk pelajar, dilengkapi ilustrasi piksel dan modul kuis kilat."
+          data-stack="HTML,CSS,Interactive Quiz"
+          data-url="https://example.com/laut-dalam">
+          <div class="thumb-wrap">
+            <canvas class="thumb" data-scene="ocean" role="img" aria-label="Ilustrasi piksel ikan di bawah laut"></canvas>
+            <span class="work-tag">EDU</span>
+          </div>
+          <div class="work-body">
+            <h3>LAUT DALAM</h3>
+            <p>Situs belajar biota laut untuk anak sekolah, lengkap dengan kuis.</p>
+            <ul class="chips"><li>HTML</li><li>CSS</li><li>Kuis</li></ul>
+            <div class="work-actions">
+              <button class="more inspect-btn" type="button">INSPECT &gt;</button>
+              <a class="ext-link" href="https://example.com/laut-dalam" target="_blank" rel="noopener" aria-label="Buka Laut Dalam">↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="work reveal" style="--c:var(--orange)"
+          data-cat="web"
+          data-title="PELANGI"
+          data-desc="Toolkit generator palet warna untuk desainer dan developer frontend, lengkap dengan fitur salin kode HEX sekali klik."
+          data-stack="UI Kit,Design System,Clipboard API"
+          data-url="https://example.com/pelangi">
+          <div class="thumb-wrap">
+            <canvas class="thumb" data-scene="rainbow" role="img" aria-label="Ilustrasi piksel pelangi di antara awan"></canvas>
+            <span class="work-tag">TOOL</span>
+          </div>
+          <div class="work-body">
+            <h3>PELANGI</h3>
+            <p>Toolkit palet warna untuk desainer, bisa disalin per warna sekali klik.</p>
+            <ul class="chips"><li>UI</li><li>Design system</li></ul>
+            <div class="work-actions">
+              <button class="more inspect-btn" type="button">INSPECT &gt;</button>
+              <a class="ext-link" href="https://example.com/pelangi" target="_blank" rel="noopener" aria-label="Buka Pelangi">↗</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band contact" id="kontak">
+    <div class="wrap">
+      <h2>CONTINUE?<span class="cursor" aria-hidden="true"></span></h2>
+      <p class="lead" style="margin-bottom:24px">Punya ide proyek kolaborasi, diskusi seputar AI &amp; Cyber Security, atau cuma mau ngobrol soal pixel art? Kirim pesan, aku balas secepatnya.</p>
+      <div class="mail">
+        <code id="email">syahrul33411@gmail.com</code>
+        <button class="btn" id="copy" type="button" style="--c:var(--cyan)">SALIN EMAIL</button>
+      </div>
+      <div class="socials">
+        <a class="btn" style="--c:var(--pink)" href="https://github.com/Beliaw" target="_blank" rel="noopener">GITHUB</a>
+        <a class="btn" style="--c:var(--cyan)" href="https://www.linkedin.com/in/syahrulmango/" target="_blank" rel="noopener">LINKEDIN</a>
+        <a class="btn" style="--c:var(--orange)" href="https://www.instagram.com/sluuurs?srtk=aW1qYm1ueTlyZWox" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a class="btn" style="--c:var(--green)" href="https://wa.me/6285139469963" target="_blank" rel="noopener">WHATSAPP</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="hearts" aria-label="Nyawa pemain">
+      <button class="heart-btn" type="button" aria-label="Nyawa 1"><canvas data-sprite="heart"></canvas></button>
+      <button class="heart-btn" type="button" aria-label="Nyawa 2"><canvas data-sprite="heart"></canvas></button>
+      <button class="heart-btn" type="button" aria-label="Nyawa 3"><canvas data-sprite="heart"></canvas></button>
+    </div>
+    <p>&copy; 2026 SYAHRUL. Dibuat dengan piksel dan kopi.</p>
+  </div>
+</footer>
+
+<!-- Modal Detail Project -->
+<div class="modal-backdrop" id="project-modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="term-bar">
+      <span class="t-dot r"></span>
+      <span class="t-dot y"></span>
+      <span class="t-dot g"></span>
+      <span class="term-title">QUEST_INSPECTOR.EXE</span>
+      <button class="modal-x" id="modal-close" type="button" aria-label="Tutup modal">X</button>
+    </div>
+    <div class="modal-content">
+      <h3 id="modal-title">JUDUL PROJECT</h3>
+      <p id="modal-desc">Deskripsi project akan tampil di sini.</p>
+      <ul class="chips" id="modal-stack"></ul>
+      <div class="modal-foot">
+        <a class="btn" id="modal-link" href="#" target="_blank" rel="noopener">&gt; KUNJUNGI DEMO</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Notifikasi -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
